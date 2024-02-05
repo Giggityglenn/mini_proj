@@ -1,0 +1,214 @@
+body{
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgb(53, 48, 48);
+    /* background-image: url("../blow.png"); */
+    /* background-repeat: repeat ; */
+    margin: 0;
+}
+
+a{
+  color: blueviolet;
+}
+
+.links a{
+  color: blueviolet;
+  text-decoration: none;
+  font-size: 2em;
+  padding: 20px;
+  color: rgb(53, 48, 48);
+}
+
+.cont{
+    display: flex;
+    justify-content: space-between;
+    background-color: blueviolet;
+    height: 4.5rem;
+    width: 98.5dvw;
+}
+
+/* .side{
+    width: 200px;
+    height: 100vh;
+    background-color: blueviolet;
+} */
+
+:root{
+  height: 300px;
+  --bar-width:  60px;
+  --bar-height: 8px;
+  --ham-gap: 6px;
+  --foreground: rgb(53, 48, 48);
+  --background: blueviolet;
+  --ham-margin: 8px;
+  --animation-timing: 200ms ease-in-out;
+  --ham-height: calc(var(--bar-height) * 3 + var(--ham-gap) * 2);
+}
+
+.ham{
+  display: flex;
+  flex-direction: column;
+  gap: var(--ham-gap);
+  width: max-content;
+  position: absolute;
+  top: var(--ham-margin);
+  left: var(--ham-margin);
+  z-index: 2;
+  cursor: pointer;
+  --x-width: calc(var(--ham-height) * 1.41421356237)
+}
+
+.ham.ham:has(input:checked){
+  --foreground: blueviolet;
+  --background: rgb(53, 48, 48);
+}
+
+.ham:has(input:focus-visible)::before,
+.ham:has(input:focus-visible)::after,
+.ham:has(input:focus-visible){
+  border: 1px solid var(--background);
+  box-shadow: 0 0 0 1px var(--foreground);
+}
+
+.ham::before,
+.ham::after,
+.ham input{
+  content: "";
+  width: var(--bar-width);
+  height: var(--bar-height);
+  background-color: var(--foreground);
+  border-radius: 999px;
+  transition: opacity var(--animation-timing), width  var(--animation-timing) rotate  var(--animation-timing)
+  translate  var(--animation-timing);
+  transform-origin: left center;
+}
+
+.ham input{
+  appearance: none;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  pointer-events: none;
+}
+
+/*from here*/
+.ham:has(input:checked)::before{
+  rotate: 45deg;
+  width: var(--x-width);
+  translate: 0 calc(var(--bar-height)/-2);
+}
+
+.ham:has(input:checked)::after{
+  rotate: -45deg;
+  width: var(--x-width);
+  translate: 0 calc(var(--bar-height)/2);
+}
+
+.ham input:checked{
+  opacity: 0;
+  width: 0;
+}
+
+.sidebar{
+  transition: translate var(--animation-timing);
+  translate: -100%;
+  padding: 0.5rem 1rem;
+  padding-top: calc(var(--ham-height) + var(--ham-margin) + 1rem);
+  background-color: var(--foreground);
+  color: var(--background);
+  max-width: 10rem;
+  min-height: 100vh;
+  font-size: 1.5em;
+}
+
+.ham:has(input:checked) + .sidebar{
+  translate: 0;
+}
+
+.switch{
+  font-size: 2em;
+  cursor: pointer;
+}
+
+.flexing{
+  display: flex;
+  border: 10px ridge blueviolet;
+  width: 80vw;
+  align-items: space-between;
+}
+
+.image{
+  width: 200px;
+  height: 300px;
+}
+
+.summary{
+  padding-left: 20px;
+  flex-wrap: wrap;
+  font-size: 1.5em;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-style: italic;
+}
+
+.summary b{font-size: 1.5em;
+  color: blueviolet;
+
+}
+
+.novels{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+#p{
+    color: blueviolet;
+    font-size: 5em;
+    padding-left: 3em;
+    text-align: center;
+}
+
+#p1{
+    color: blueviolet;
+    text-align: center;
+    font-size: 150%;
+}
+
+.footer{
+  display: flex;
+  justify-content: space-around;
+  background-color: blueviolet;
+  font-size: 1.5em;
+  color: rgb(53, 48, 48);
+  margin-top: auto;
+}
+
+.individuals{
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: auto;
+  min-height: 80vh;
+}
+
+.alldivs{
+  display: flex;
+  flex-direction: column;
+  /* align-content: space-around; */
+  gap: 50px;
+  justify-content: space-between;
+  min-height: 100dvh;
+}
+
+.details{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: blueviolet;
+  font-size: 1.5em;
+}
+
+.novel-link{
+  text-decoration: none;
+}
