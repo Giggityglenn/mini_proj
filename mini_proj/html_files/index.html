@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../images/kaguya.png">
+</head>
+<body>
+    <div class="alldivs">
+        <div class="cont">
+        </div>
+        <script>
+            fetch('navbar.html')
+                .then(res => res.text())
+                .then(data =>{
+                    const parsedNavbar = new DOMParser().parseFromString(data, 'text/html');
+                    const headerElement = parsedNavbar.querySelector('.cont');
+                    const navbarHTML = headerElement.innerHTML;
+                    const currentHeader = document.querySelector('.cont');
+                    currentHeader.innerHTML = navbarHTML;
+
+                    
+                        const but = document.querySelector('.switch');
+                        const body = document.querySelector('body');
+                        console.log(but)
+                        but.addEventListener('click', () => {
+                        if(but.textContent === '🌙'){
+                            but.textContent = '🌞'
+                            body.style['background-color'] = 'white';
+                        }
+                        else{
+                            but.textContent = '🌙'
+                            body.style['background-color'] = 'rgb(53, 48, 48)';
+                        }
+                        })
+                })
+
+                fetch('footer.html')
+                .then(res => res.text())
+                .then(data =>{
+                    const parsedFooter = new DOMParser().parseFromString(data, 'text/html');
+                    const footElement = parsedFooter.querySelector('.footer');
+                    const foot = footElement.innerHTML;
+                    const currentFoot = document.querySelector('.footer');
+                    currentFoot.innerHTML = foot;
+                    console.log(foot);
+                })
+        </script>
+        <div>
+            <p id="p">Website under development</p>
+            <p id="p1">Watch our progress on <a href="https://github.com/giggityglenn/mini_proj">github</a></p>
+        </div>
+        <div class="novels">
+            <a href="lotm.html" class="novel-link"><div class="flexing">
+                    <img src="../images/lotm.jpg" alt="Lord Of The Mysteries cover" class="image">
+                    <p class="summary">
+                        <b>Lord of the mysteries</b><br><br>
+                        In the waves of steam and machinery, who could achieve extraordinary? In the fogs of history and darkness, who was whispering? I woke up from the realm of mysteries and opened my eyes to the world.
+                        Firearms, cannons, battleships, airships, and difference machines. Potions, divination, curses, hanged-man, and sealed artifacts… The lights shone brightly, yet the secrets of the world were never far away. This was a legend of the “Fool”
+                    </p>
+                </div>
+            </a>
+            <div class="flexing">
+                <img src="../images/ssscsh.jpg" alt="sss class suicide hunter cover" class="image">
+                <p class="summary">
+                    <b>SSS class suicide hunter</b><br><br>
+                    I want an S-Rank skill too! I want it so badly, I could die for it!
+
+                    [You have awakened an S-Rank skill.] [But it only works when you die.]
+
+                    Eh !? WHAT IS THE POINT OF GETTING ONE IF I DIE !?
+                </p>
+            </div>
+        </div>
+        <div class="footer">
+        </div>
+    </div>
+</body>
+</html>
