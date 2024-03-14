@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lord of the mysteries</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="shortcut icon" href="../images/kaguya.png" type="image/png">
+</head>
+<body>
+    <div class="alldivs">
+        <div class="cont">
+        </div>
+        <script>
+            fetch('navbar.html')
+                .then(res => res.text())
+                .then(data =>{
+                    const parsedNavbar = new DOMParser().parseFromString(data, 'text/html');
+                    const headerElement = parsedNavbar.querySelector('.cont');
+                    const navbarHTML = headerElement.innerHTML;
+                    const currentHeader = document.querySelector('.cont');
+                    currentHeader.innerHTML = navbarHTML;
+
+                    const but = document.querySelector('.switch');
+                    const body = document.querySelector('body');
+                    but.addEventListener('click', () => {
+                    if(but.textContent === '🌙'){
+                        but.textContent = '🌞'
+                        body.style['background-color'] = 'white';
+                    }
+                    else{
+                        but.textContent = '🌙'
+                        body.style['background-color'] = 'rgb(53, 48, 48)';
+                    }
+                    })
+                })
+
+                fetch('footer.html')
+                .then(res => res.text())
+                .then(data =>{
+                    const parsedFooter = new DOMParser().parseFromString(data, 'text/html');
+                    const footElement = parsedFooter.querySelector('.footer');
+                    const foot = footElement.innerHTML;
+                    const currentFoot = document.querySelector('.footer');
+                    currentFoot.innerHTML = foot;
+                })
+        </script>
+        <div class="individuals">
+            <img src="../images/deep-sea-embers.webp" alt="Lord Of The Mysteries cover" class="image">
+            <p class="summary">
+                <b>Deep sea embers</b><br><br>
+                
+                On that day, the fog blocked everything.
+
+                On that day, he became the captain of a ghost ship.
+
+                On that day, he stepped through the thick fog and confronted a completely subverted and fragmented world—the old order had vanished, strange phenomonoms dominated the endless seas beyond civilized society, and isolated island city-states and fleets of ships challenged the sea that had become the last ember of lights for the civilized world. All of this while the shadows of the old days were still stirring in the deep sea, waiting to to devour this world that was about to die.
+
+                But for the new captain of the ghost ship Vanished, there was only one question he had to consider first: Who knows how to drive this ship?!
+                    <br><br>
+            </p>
+        </div>
+        <div  class="details">
+            <div>
+                Rating bar goes here
+            </div>
+            <div>
+                links go here
+            </div>
+        </div>
+        <div class="footer">
+        </div>
+    </div>    
+</body>
+</html>

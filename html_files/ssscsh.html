@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lord of the mysteries</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="shortcut icon" href="../images/kaguya.png" type="image/png">
+</head>
+<body>
+    <div class="alldivs">
+        <div class="cont">
+        </div>
+        <script>
+            fetch('navbar.html')
+                .then(res => res.text())
+                .then(data =>{
+                    const parsedNavbar = new DOMParser().parseFromString(data, 'text/html');
+                    const headerElement = parsedNavbar.querySelector('.cont');
+                    const navbarHTML = headerElement.innerHTML;
+                    const currentHeader = document.querySelector('.cont');
+                    currentHeader.innerHTML = navbarHTML;
+
+                    const but = document.querySelector('.switch');
+                    const body = document.querySelector('body');
+                    but.addEventListener('click', () => {
+                    if(but.textContent === '🌙'){
+                        but.textContent = '🌞'
+                        body.style['background-color'] = 'white';
+                    }
+                    else{
+                        but.textContent = '🌙'
+                        body.style['background-color'] = 'rgb(53, 48, 48)';
+                    }
+                    })
+                })
+
+                fetch('footer.html')
+                .then(res => res.text())
+                .then(data =>{
+                    const parsedFooter = new DOMParser().parseFromString(data, 'text/html');
+                    const footElement = parsedFooter.querySelector('.footer');
+                    const foot = footElement.innerHTML;
+                    const currentFoot = document.querySelector('.footer');
+                    currentFoot.innerHTML = foot;
+                })
+        </script>
+        <div class="individuals">
+            <img src="../images/ssscsh.jpg" alt="Lord Of The Mysteries cover" class="image">
+            <p class="summary">
+                <b>SSS Class suicide hunter</b><br><br>
+                I want an S-Rank skill too! I want it so badly, I could die for it!
+
+                        [You have awakened an S-Rank skill.] [But it only works when you die.]
+
+                        Eh !? WHAT IS THE POINT OF GETTING ONE IF I DIE !?
+                    <br><br>
+            </p>
+        </div>
+        <div  class="details">
+            <div>
+                Rating bar goes here
+            </div>
+            <div>
+                links go here
+            </div>
+        </div>
+        <div class="footer">
+        </div>
+    </div>    
+</body>
+</html>
