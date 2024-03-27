@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trial Page</title>
+    <!-- <script src="../app.js"></script> -->
+</head>
+<body>
+   <form action="./send-image" method="post" class="demo">
+    
+   </form>
+   <script>
+    const fragment = new DocumentFragment();
+    const demo = document.querySelector('.demo');
+
+    for(let i = 1; i < 6; i++){
+        let divElement = document.createElement('div');
+        let imgElement = document.createElement('img');
+        let checkElement = document.createElement('input');
+        divElement.className = "container";
+        checkElement.type = "checkbox";
+        checkElement.className = 'box';
+        checkElement.value = "checked";
+        checkElement.name = `img${i}.png`;
+        imgElement.src = `./../images/img${i}.png`;
+        imgElement.style.width = "200px";
+        imgElement.style.height = "200px";
+        divElement.appendChild(imgElement);
+        divElement.appendChild(checkElement);
+        fragment.appendChild(divElement);
+    }
+    const btn = document.createElement('button');
+    btn.type = 'submit';
+    btn.textContent = "submit";
+    demo.appendChild(fragment);
+    demo.appendChild(btn);
+    
+   </script>
+</body>
+</html>
